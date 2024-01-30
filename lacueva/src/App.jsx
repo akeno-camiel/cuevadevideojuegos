@@ -1,20 +1,26 @@
 import './App.css'
-import Carrusel from './components/Carrusel.jsx'
-import Categories from './components/Categories.jsx'
-import Footer from './components/Footer.jsx'
-import ItemListContainer from './components/ItemListContainer.jsx'
-import Navbar from './components/Navbar.jsx'
+import Navbar from './components/Navbar/Navbar'
+import Carrusel from './components/Carrusel/Carrusel'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import Categories from './components/Categories/Categories'
+import Footer from './components/Footer/Footer'
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+
 
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <Carrusel />
-      <ItemListContainer msj={"No tenemos productos por el momento, vuelva en la segunda entrega"}/>
-      <Categories/>
-      <Footer/>
-    </>
+      <Routes>
+        <Route path={'/'} element={<Carrusel />} />
+        <Route path={'/categoria/:id'} element={<ItemListContainer />} />
+        <Route path={'/item/:id'} element={<ItemDetailContainer />} />
+      </Routes>
+      <Categories />
+      <Footer />
+    </BrowserRouter>
   )
 }
 
