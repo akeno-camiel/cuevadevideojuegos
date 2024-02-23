@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import { CartContext } from "../CartContext/CartContext";
 
 const ItemDetail = ({ item }) => {
+    const { addItem } = useContext(CartContext);
+
+    const onAdd = (quantity) => {
+        addItem(item, quantity);
+    };
+
+    const onBuyNow = (quantity) => {
+        addItem(item, quantity);
+    };
+    
+
     return (
         <div className="d-flex justify-content-center">
             <div className="card my-5">
@@ -12,7 +25,7 @@ const ItemDetail = ({ item }) => {
                         <div className="card-body pt-4">
                             <h5 className="card-title">{item.title}</h5>
                             <p className="card-text">${item.price}</p>
-                            <ItemCount stock={10} />
+                            <ItemCount stock={item.stock} onAdd={onAdd} onBuyNow={onBuyNow} />
                         </div>
                     </div>
                 </div>

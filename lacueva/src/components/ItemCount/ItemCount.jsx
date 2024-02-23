@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import arrowup from "../../assets/chevronup.svg";
 import arrowdown from "../../assets/chevrondown.svg";
+import { Link } from "react-router-dom";
 
 
-const ItemCount = ({ stock }) => {
-    const [number, setNumber] = useState(0);
+const ItemCount = ({ stock, onAdd, onBuyNow }) => {
+    const [number, setNumber] = useState(1);
     const [itemStock, setItemStock] = useState(stock);
 
     const sumar = () => {
@@ -19,12 +20,21 @@ const ItemCount = ({ stock }) => {
         }
     };
 
-    const onAdd = () => {
+    const addToCart = () => {
         if (number <= itemStock) {
             setItemStock(itemStock - number)
-            setNumber(0);
+            setNumber(1);
+            onAdd(number);
         }
     };
+
+    const buyNow = () => {
+        onBuyNow(number);
+    };
+
+    useEffect (() => {
+        setItemStock(stock)
+    }, [stock]);
 
     return (
         <div>
@@ -34,8 +44,9 @@ const ItemCount = ({ stock }) => {
                     <button onClick={sumar} type="button" className="btn btn-warning p-0 pe-2 rounded-start-0"><img src={arrowup} /></button>
                     <button onClick={restar} type="button" className="btn btn-warning p-0 pe-2 rounded-start-0"><img src={arrowdown} /></button>
                 </div>
-                <button onClick={onAdd} type="button" className="btn btn-warning ms-3 rounded-start-2">Agregar al carrito</button>
             </div>
+                <button onClick={addToCart} type="button" className="btn btn-warning ms-3 p-3">Agregar al carrito</button>
+                <Link onClick={buyNow} type="button" className="btn btn-warning ms-3 p-3" to={"/cart"}> Comprar ahora </Link>
         </div>
     )
 
