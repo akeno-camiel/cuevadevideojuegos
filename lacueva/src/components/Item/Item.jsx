@@ -7,7 +7,7 @@ const Item = ({ item }) => {
                 <Link to={"/item/" + item.id}><img src={item.img} className="card-img-top" alt={item.title} /> </Link>
                 <hr />
                     <div className="card-body">
-                        <h5 className="card-title">{item.title}</h5>
+                        <h5 className="card-title">{item.title.toUpperCase()}</h5>
                         <p className="card-text"> ${item.price}</p>
                     </div>
             </div>

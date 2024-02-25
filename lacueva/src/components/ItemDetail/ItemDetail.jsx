@@ -19,7 +19,7 @@ const ItemDetail = ({ item }) => {
                     </div>
                     <div className="col-md-8">
                         <div className="card-body pt-4">
-                            <h5 className="card-title">{item.title}</h5>
+                            <h5 className="card-title">{item.title.toUpperCase()}</h5>
                             <p className="card-text">${item.price}</p>
                             <ItemCount stock={item.stock} onAdd={onAdd} />
                         </div>
