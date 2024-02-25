@@ -4,7 +4,7 @@ import { CartContext } from "../CartContext/CartContext";
 
 const ItemDetail = ({ item }) => {
     const { addItem } = useContext(CartContext);
-
+    
     const onAdd = (quantity) => {
         addItem(item, quantity);
     };
@@ -16,7 +16,7 @@ const ItemDetail = ({ item }) => {
 
     return (
         <div className="d-flex justify-content-center">
-            <div className="card my-5">
+            <div className="card m-5">
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img src={item.img} className="img-fluid rounded-start p-4" alt={item.title} />
@@ -34,9 +34,6 @@ const ItemDetail = ({ item }) => {
                         <ul className="nav nav-tabs card-header-tabs">
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="true" href="#">General</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="true" href="#">Caracteristicas</a>
                             </li>
                         </ul>
                     </div>

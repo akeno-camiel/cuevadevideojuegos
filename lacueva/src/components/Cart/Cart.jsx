@@ -38,26 +38,28 @@ const Cart = () => {
                                 <th scope="col">Precio U.</th>
                                 <th scope="col">Cant.</th>
                                 <th scope="col">SubTotal</th>
-                                <th></th>
+                                <th className="text-end" colSpan="8"><a type="button" className="btn btn-warning p-1" href="#" onClick={() => clear()}>Vaciar carrito<img src={trash} alt="Eliminar carrito" /></a></th>
                             </tr>
                         </thead>
                         <tbody className="table-group-divider">
 
                             {cart.map(product =>
-                                <tr key={product.id}>
+                                <tr className="align-middle" key={product.id}>
                                     <th><img src={product.img} alt={product.title} width={70} /></th>
-                                    <td>{product.title}</td>
+                                    <td className="text-start">{product.title}</td>
                                     <td>${product.price}</td>
                                     <td>{product.quantity}</td>
                                     <td>${product.quantity * product.price}</td>
-                                    <td><a href="#" onClick={ () => removeItem(product.id)}><img src={trash} alt="Eliminar producto" /></a></td>
+                                    <td className="text-end"><a href="#" onClick={() => removeItem(product.id)}><img src={trash} alt="Eliminar producto" /></a></td>
                                 </tr>
                             )}
 
                             <tr>
-                                <td colSpan="3"></td>
-                                <td>Suma Total</td>
-                                <td>${SumaTotalProductos()}</td>
+                                <td colSpan="2"></td>
+                                <td><strong>Suma Total</strong></td>
+                                <td>&nbsp;</td>
+                                <td><strong>${SumaTotalProductos()}</strong></td>
+                                <td className="text-end"><Link to={"/checkout"} className="btn btn-warning p-1"> Finalizar compra </Link></td>
                             </tr>
                         </tbody>
                     </table>

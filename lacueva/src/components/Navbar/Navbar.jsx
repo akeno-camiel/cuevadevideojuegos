@@ -1,7 +1,7 @@
 import Logo from "../Logo/Logo.jsx";
 import Searchbar from "../Searchbar/Searchbar.jsx";
 import CartWidget from "../CartWidget/CartWidget.jsx"
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -22,12 +22,10 @@ const Navbar = () => {
                     <div className="container-fluid">
                         <div className="collapse navbar-collapse d-flex justify-content-around" id="navbarNavAltMarkup">
                             <div className="navbar-nav">
-                                <Link className="nav-link mx-5" to={"/gaming"}>Gaming</Link>
-                                <Link className="nav-link mx-5" to={"/perifericos"}>Perifericos</Link>
-                                <Link className="nav-link mx-5" to={"/componentes"}>Componentes de PC</Link>
-                                <Link className="nav-link mx-5" to={"/TV"}>Smart TV</Link>
-                                <Link className="nav-link mx-5" to={"/audio"}>Audio</Link>
-                                <Link className="nav-link mx-5" to={"/promos"}>Promos</Link>
+                                <NavLink className="nav-link mx-5" to={"/categoria/consola"}>Gaming</NavLink>
+                                <NavLink className="nav-link mx-5" to={"/categoria2/perifericos"}>Perifericos</NavLink>
+                                <NavLink className="nav-link mx-5" to={"/categoria2/componentepc"}>Componentes de PC</NavLink>
+                                <NavLink className="nav-link mx-5" to={"/categoria/notebook"}>Notebooks</NavLink>
                             </div>
                         </div>
                     </div>
