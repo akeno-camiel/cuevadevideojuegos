@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import arrowup from "../../assets/chevronup.svg";
 import arrowdown from "../../assets/chevrondown.svg";
 import { Link } from "react-router-dom";
+import { CartContext } from "../CartContext/CartContext";
 
 
-const ItemCount = ({ stock, onAdd, onBuyNow }) => {
+const ItemCount = ({ stock, onAdd }) => {
+    const { cart } = useContext(CartContext);
+
     const [number, setNumber] = useState(1);
     const [itemStock, setItemStock] = useState(stock);
 
@@ -29,7 +32,9 @@ const ItemCount = ({ stock, onAdd, onBuyNow }) => {
     };
 
     const buyNow = () => {
-        onBuyNow(number);
+        if (cart.length === 0) {
+            onAdd(number);
+        }
     };
 
     useEffect (() => {

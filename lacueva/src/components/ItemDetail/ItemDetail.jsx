@@ -8,10 +8,6 @@ const ItemDetail = ({ item }) => {
     const onAdd = (quantity) => {
         addItem(item, quantity);
     };
-
-    const onBuyNow = (quantity) => {
-        addItem(item, quantity);
-    };
     
 
     return (
@@ -25,7 +21,7 @@ const ItemDetail = ({ item }) => {
                         <div className="card-body pt-4">
                             <h5 className="card-title">{item.title}</h5>
                             <p className="card-text">${item.price}</p>
-                            <ItemCount stock={item.stock} onAdd={onAdd} onBuyNow={onBuyNow} />
+                            <ItemCount stock={item.stock} onAdd={onAdd} />
                         </div>
                     </div>
                 </div>
