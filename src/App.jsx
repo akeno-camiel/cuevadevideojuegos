@@ -5,7 +5,7 @@ import Categories from './components/Categories/Categories'
 import Footer from './components/Footer/Footer'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
-import Cart from './components/Cart/cart'
+import Cart from './components/Cart/Cart.jsx'
 import CartContextProvider from './components/CartContext/CartContext'
 import ItemNavContainer from './components/ItemNavContainer/ItemNavContainer'
 import Principal from './components/Principal/Principal'
